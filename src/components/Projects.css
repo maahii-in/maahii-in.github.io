@@ -1,0 +1,108 @@
+/* Light mode background image for project card content section only */
+#projects .project-card .p-6 {
+  background-image: url('/img/white_bg_card.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  position: relative;
+}
+
+/* Add light overlay for better text readability on project card content in light mode */
+#projects .project-card .p-6::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ensure content is above overlay in light mode */
+#projects .project-card .p-6 > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Dark mode background image for project card content section only */
+.dark #projects .project-card .p-6 {
+  background-image: url('/img/project_dark_bg.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgb(30, 29, 29);
+  position: relative;
+}
+
+/* Add overlay for better text readability on project card content */
+.dark #projects .project-card .p-6::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ensure content is above overlay */
+.dark #projects .project-card .p-6 > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* All projects page content section styling */
+#all-projects .project-card .p-6 {
+  background-image: url('/img/white_bg_card.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  position: relative;
+}
+
+#all-projects .project-card .p-6::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#all-projects .project-card .p-6 > * {
+  position: relative;
+  z-index: 2;
+}
+
+.dark #all-projects .project-card .p-6 {
+  background-image: url('/img/project_dark_bg.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgb(30, 29, 29);
+  position: relative;
+}
+
+.dark #all-projects .project-card .p-6::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dark #all-projects .project-card .p-6 > * {
+  position: relative;
+  z-index: 2;
+}

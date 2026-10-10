@@ -1,0 +1,15 @@
+.para {
+  text-align: justify;
+}
+.name {
+  font-size: xx-large;
+  color: rgb(0, 0, 0);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.dark .name {
+  color: rgb(255, 255, 255);
+}
+.para {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
