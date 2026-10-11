@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://maahii-in.github.io/sitemap.xml

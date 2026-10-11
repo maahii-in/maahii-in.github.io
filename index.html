@@ -1,11 +1,9 @@
 <!doctype html>
 <html lang="en" class="dark">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
     <!-- Single theme color meta tag that will be updated by JavaScript -->
     <meta name="theme-color" content="#000000" />
@@ -20,19 +18,61 @@
     <meta name="msapplication-TileColor" content="#000000" />
 
     <!-- Favicon and app icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
 
+    <!-- Title and SEO -->
     <title>Mahieshwar Budati | AI Engineer</title>
+    <meta name="description"
+        content="Mahieshwar Budati is an AI Engineer from Andhra Pradesh, India, building LLM, NLP and RAG applications with Python, LangChain and FastAPI." />
+    <meta name="author" content="Mahieshwar Budati" />
+    <meta name="keywords"
+        content="Mahieshwar Budati, Mahi Budati, AI Engineer, LLM, RAG, NLP, LangChain, Python, FastAPI, portfolio" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://maahii-in.github.io/" />
+
+    <!-- Google Search Console verification: paste your meta tag here when you get it -->
+    <!-- <meta name="google-site-verification" content="YOUR_CODE" /> -->
+
+    <!-- Open Graph (link previews on LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mahieshwar Budati" />
+    <meta property="og:title" content="Mahieshwar Budati | AI Engineer" />
+    <meta property="og:description" content="AI Engineer building LLM, NLP and RAG applications." />
+    <meta property="og:url" content="https://maahii-in.github.io/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Mahieshwar Budati | AI Engineer" />
+    <meta name="twitter:description" content="AI Engineer building LLM, NLP and RAG applications." />
+
+    <!-- Structured data: tells search engines this site belongs to a person -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mahieshwar Budati",
+        "alternateName": "Mahi Budati",
+        "jobTitle": "AI Engineer",
+        "url": "https://maahii-in.github.io/",
+        "email": "mailto:mahieshwar.budati@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Andhra Pradesh",
+          "addressCountry": "IN"
+        },
+        "sameAs": [
+          "https://github.com/maahii-in",
+          "https://www.linkedin.com/in/mahi-budati1209"
+        ]
+      }
+    </script>
 
     <!-- Preload critical images for instant loading -->
-
     <link rel="preload" as="image" href="/img/me.svg" fetchpriority="high" />
 
-  <!-- Preload dock and card background images for navigation -->
+    <!-- Preload dock and card background images for navigation -->
     <link rel="preload" as="image" href="/img/light_dock_bg.jpg" />
     <link rel="preload" as="image" href="/img/dark_dock_bg.jpg" />
     <link rel="preload" as="image" href="/img/white_bg_card.jpg" />
@@ -42,44 +82,43 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap" rel="stylesheet" />
 
     <!-- Inline script to set theme color immediately -->
     <script>
-      (function () {
-        const savedTheme = localStorage.getItem("theme");
-        const isDark =
-          savedTheme === "dark" ||
-          (!savedTheme &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches);
-        const color = isDark ? "#000000" : "#ffffff";
+        (function () {
+            const savedTheme = localStorage.getItem("theme");
+            const isDark =
+                savedTheme === "dark" ||
+                (!savedTheme &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches);
+            const color = isDark ? "#000000" : "#ffffff";
 
-        // Update theme-color immediately
-        document
-          .querySelector('meta[name="theme-color"]')
-          .setAttribute("content", color);
+            // Update theme-color immediately
+            document
+                .querySelector('meta[name="theme-color"]')
+                .setAttribute("content", color);
 
-        // Update status bar style
-        const statusBar = document.querySelector(
-          'meta[name="apple-mobile-web-app-status-bar-style"]'
-        );
-        if (statusBar) {
-          statusBar.setAttribute(
-            "content",
-            isDark ? "black-translucent" : "default"
-          );
-        }
+            // Update status bar style
+            const statusBar = document.querySelector(
+                'meta[name="apple-mobile-web-app-status-bar-style"]'
+            );
+            if (statusBar) {
+                statusBar.setAttribute(
+                    "content",
+                    isDark ? "black-translucent" : "default"
+                );
+            }
 
-        // Set initial theme class
-        document.documentElement.className = isDark ? "dark" : "light";
-      })();
+            // Set initial theme class
+            document.documentElement.className = isDark ? "dark" : "light";
+        })();
     </script>
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-  </body>
+</body>
+
 </html>
