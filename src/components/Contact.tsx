@@ -220,7 +220,7 @@ From: ${formData.name} (${formData.email})`
 
             {/* Clickable GitHub */}
             <a
-              href="https://github.com/mahieshwar-budati"
+              href="https://github.com/maahii-in"
               className="flex items-center space-x-3 group cursor-pointer bg-white dark:bg-gray-800/50 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 dark:hover:from-blue-900/20 dark:hover:to-purple-900/20 rounded-xl p-4 transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 shadow-sm hover:shadow-lg hover:shadow-blue-500/10 transform hover:-translate-y-0.5"
               aria-label="View GitHub Profile"
               target="_blank"

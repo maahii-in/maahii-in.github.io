@@ -21,7 +21,7 @@ export function Footer() {
               <Linkedin className="w-6 h-6" />
             </a>
             <a
-              href="https://github.com/mahieshwar-budati" // Replace with your GitHub URL
+              href="https://github.com/maahii-in" // Replace with your GitHub URL
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 transition-colors"

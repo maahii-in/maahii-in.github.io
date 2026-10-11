@@ -7,7 +7,7 @@ export const projects: Project[] = [
     description:
       "A real-time AI voice agent built with LiveKit for low-latency conversations. An STT/TTS pipeline connects to an LLM backend for multi-turn voice chats, using the LiveKit Agents framework for room and track management.",
     image: "img/project_voice_agent.svg",
-    github: "https://github.com/mahieshwar-budati/javis-live-voice-agent",
+    github: "https://github.com/maahii-in/javis-live-voice-agent",
     technologies: ["Python", "LiveKit", "STT/TTS", "LLM"],
     category: "AI",
   },
@@ -16,7 +16,7 @@ export const projects: Project[] = [
     description:
       "A context-aware AI system that answers user queries accurately from document datasets using LangChain and vector search. Includes data pipelines for document chunking, embedding generation and semantic similarity search.",
     image: "img/project_rag.svg",
-    github: "https://github.com/mahieshwar-budati/Basic-Advance-RAG",
+    github: "https://github.com/maahii-in/Basic-Advance-RAG",
     technologies: ["Python", "LangChain", "RAG", "Vector Search", "Embeddings"],
     category: "AI",
   },
@@ -25,7 +25,7 @@ export const projects: Project[] = [
     description:
       "An NLP-based machine learning model that detects suicidal tendencies from text data. Data preprocessing and model training were done with Python, Pandas and Scikit-learn.",
     image: "img/project_nlp.svg",
-    github: "https://github.com/mahieshwar-budati/suicidal-tendency-report",
+    github: "https://github.com/maahii-in/suicidal-tendency-report",
     technologies: ["Python", "NLP", "Pandas", "Scikit-learn", "Machine Learning"],
     category: "ML",
   },

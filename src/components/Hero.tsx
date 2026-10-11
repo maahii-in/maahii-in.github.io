@@ -110,7 +110,7 @@ const HeroSection: React.FC = () => {
             <div className="flex items-center space-x-4 sm:space-x-6 justify-center lg:justify-start mb-8">
               <div className="relative group flex items-center">
                 <a
-                  href="https://github.com/mahieshwar-budati"
+                  href="https://github.com/maahii-in"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center text-white bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600 transition-all duration-300 p-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105"
@@ -235,7 +235,7 @@ const HeroSection: React.FC = () => {
                       <span className="text-blue-500 dark:text-blue-400">
                         const
                       </span>
-                      <span>blog = {}</span>
+                      <span>blog = { }</span>
                     </div>
                     <div className="flex space-x-1">
                       <span className="text-purple-500 dark:text-purple-400">

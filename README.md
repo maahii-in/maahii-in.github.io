@@ -57,5 +57,5 @@ npm run preview
 
 - Email: mahieshwar.budati@gmail.com
 - LinkedIn: [mahi-budati1209](https://www.linkedin.com/in/mahi-budati1209)
-- GitHub: [mahieshwar-budati](https://github.com/mahieshwar-budati)
+- GitHub: [maahii-in](https://github.com/maahii-in)
 - Location: Chirala, Andhra Pradesh, India
