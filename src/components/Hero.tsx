@@ -4,6 +4,7 @@ import { SiGithub, SiLinkedin, SiGmail } from "react-icons/si";
 import confetti from "canvas-confetti";
 import NameAnimation from "./NameAnimation";
 import Typewriter from "./TypeWriter";
+import { toggleFullscreen } from "../lib/fullscreen";
 
 const HeroSection: React.FC = () => {
   const [isDownloading, setIsDownloading] = useState(false);
@@ -31,8 +32,8 @@ const HeroSection: React.FC = () => {
   };
 
   // Confetti effect for image hover
-  const handleImageHover = async () => {
-    await confetti({
+  const handleImageHover = () => {
+    void confetti({
       particleCount: 100,
       spread: 70,
       origin: { y: 0.6 },
@@ -40,19 +41,17 @@ const HeroSection: React.FC = () => {
     });
   };
 
-  // Fullscreen functionality when 'F' key is pressed (only when not typing)
+  // Fullscreen when 'F' key is pressed (only when not typing)
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      // Check if user is typing in any input field, textarea, or contenteditable element
-      const target = event.target as HTMLElement;
+      const target = event.target as HTMLElement | null;
       const isTyping =
-        target &&
+        !!target &&
         (target.tagName === "INPUT" ||
           target.tagName === "TEXTAREA" ||
-          target.contentEditable === "true" ||
-          target.closest("input, textarea, [contenteditable]"));
+          target.isContentEditable ||
+          !!target.closest("input, textarea, [contenteditable]"));
 
-      // Only trigger fullscreen if not typing and F key is pressed alone
       if (
         event.key.toLowerCase() === "f" &&
         !event.ctrlKey &&
@@ -61,24 +60,11 @@ const HeroSection: React.FC = () => {
         !isTyping
       ) {
         event.preventDefault();
-
-        if (!document.fullscreenElement) {
-          // Enter fullscreen
-          document.documentElement.requestFullscreen?.() ||
-            (document.documentElement as any).webkitRequestFullscreen?.() ||
-            (document.documentElement as any).msRequestFullscreen?.();
-        } else {
-          // Exit fullscreen
-          document.exitFullscreen?.() ||
-            (document as any).webkitExitFullscreen?.() ||
-            (document as any).msExitFullscreen?.();
-        }
+        void toggleFullscreen();
       }
     };
 
     document.addEventListener("keydown", handleKeyPress);
-
-    // Cleanup event listener
     return () => {
       document.removeEventListener("keydown", handleKeyPress);
     };
@@ -102,8 +88,8 @@ const HeroSection: React.FC = () => {
               <Typewriter />
             </div>
             <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-lg text-sm sm:text-base leading-relaxed mx-auto lg:mx-0">
-              I build NLP and LLM applications, RAG systems and live voice agents
-              using Python, LangChain, FastAPI and vector databases.
+              I build NLP and LLM applications, RAG systems and live voice
+              agents using Python, LangChain, FastAPI and vector databases.
             </p>
 
             {/* Social Icons Section */}
@@ -159,7 +145,7 @@ const HeroSection: React.FC = () => {
 
               <div className="relative group flex items-center">
                 <button
-                  onClick={handleResumeDownload}
+                  onClick={() => void handleResumeDownload()}
                   disabled={isDownloading}
                   className="flex items-center justify-center text-white bg-green-500 hover:bg-green-600 dark:bg-green-400 dark:hover:bg-green-300 transition-all duration-300 p-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
                   aria-label="Download Resume"
@@ -171,7 +157,7 @@ const HeroSection: React.FC = () => {
                   )}
                 </button>
 
-                {/* Success tooltip - always visible when showToast is true */}
+                {/* Success tooltip */}
                 {showToast && (
                   <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-1.5 bg-green-600 dark:bg-green-500 text-white text-xs font-medium rounded whitespace-nowrap z-[60] shadow-lg opacity-100">
                     Resume Downloaded!
@@ -179,7 +165,7 @@ const HeroSection: React.FC = () => {
                   </div>
                 )}
 
-                {/* Regular tooltip - only show when not in success state */}
+                {/* Regular tooltip */}
                 {!showToast && (
                   <div className="invisible group-hover:visible absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 px-2 py-1 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-xs rounded whitespace-nowrap z-50 opacity-0 group-hover:opacity-100 transition-all duration-200">
                     {isDownloading ? "Downloading..." : "Download Resume"}
@@ -190,7 +176,7 @@ const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Professional Right Side with new.png and Blog Background */}
+          {/* Right side: profile photo with blog-style background */}
           <div className="w-full lg:w-1/2 flex justify-center order-1 lg:order-2 mb-8 lg:mb-0">
             <div className="relative">
               {/* Blog Background */}
@@ -235,7 +221,7 @@ const HeroSection: React.FC = () => {
                       <span className="text-blue-500 dark:text-blue-400">
                         const
                       </span>
-                      <span>blog = { }</span>
+                      <span>{"blog = { }"}</span>
                     </div>
                     <div className="flex space-x-1">
                       <span className="text-purple-500 dark:text-purple-400">
@@ -250,14 +236,17 @@ const HeroSection: React.FC = () => {
               </div>
 
               {/* Profile Image */}
-              <img
-                src="img/me.svg"
-                alt="Mahieshwar Budati - AI Engineer"
-                className="relative z-10 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-2xl hover:scale-105 transition-transform duration-300 border-4 border-white dark:border-gray-700"
+              <div
+                className="relative z-10 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-300 border-4 border-white dark:border-gray-700"
                 onMouseEnter={handleImageHover}
-                loading="eager"
-                fetchPriority="high"
-              />
+              >
+                <img
+                  src="/img/me.png"
+                  alt="Mahieshwar Budati - AI Engineer"
+                  className="w-full h-full object-cover object-top scale-[1.5] origin-top-left"
+                  loading="eager"
+                />
+              </div>
             </div>
           </div>
         </div>
