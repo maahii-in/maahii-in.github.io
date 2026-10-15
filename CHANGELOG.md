@@ -1,7 +1,27 @@
 # Changelog
 
-All notable changes to this project are documented here.
-The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow [Semantic Versioning](https://semver.org/).
+All notable changes to this project are documented in this file.
+
+The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/).
+
+## [Unreleased]
+
+Work in progress on the `dev` branch. Nothing here is live on [maahii.space](https://maahii.space) until `dev` is merged into `main`.
+
+### Added
+- `dev` branch for day-to-day work, so the live site on `main` stays stable
+- "Branching and Releases" section in the README, with the pull-request workflow and release steps
+- Release badge and a link to this changelog in the README
+
+### Changed
+- Architecture diagram in the README now shows the `dev` to `main` flow
+
+### Planned
+- Real certificate images in place of the generated placeholders
+- Project screenshots and live-demo links
+- Blog section for write-ups on RAG and LLM engineering
+- Case study page for each featured project
+- Contact form that delivers messages straight to my inbox
 
 ## [1.0.0] - 2026-10-15
 
@@ -36,4 +56,7 @@ First public release of the portfolio at [maahii.space](https://maahii.space).
 ### Known limitations
 - Certificate images and project covers are generated placeholders
 - Projects have no live demos
-- Google indexing of the site is still in progress
+- Google indexing of the site was still in progress at release time
+
+[Unreleased]: https://github.com/maahii-in/maahii-in.github.io/compare/v1.0.0...dev
+[1.0.0]: https://github.com/maahii-in/maahii-in.github.io/releases/tag/v1.0.0

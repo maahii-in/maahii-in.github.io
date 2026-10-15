@@ -9,6 +9,7 @@ I build retrieval-augmented generation systems, live voice agents and the ML wor
 **[maahii.space](https://maahii.space)** · [LinkedIn](https://www.linkedin.com/in/mahi-budati1209) · [GitHub](https://github.com/maahii-in) · [Email](mailto:mahieshwar.budati@gmail.com)
 
 [![Deploy](https://github.com/maahii-in/maahii-in.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/maahii-in/maahii-in.github.io/actions/workflows/deploy.yml)
+[![Release](https://img.shields.io/github/v/release/maahii-in/maahii-in.github.io?label=release)](https://github.com/maahii-in/maahii-in.github.io/releases)
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Fmaahii.space&label=maahii.space&up_message=online&down_message=offline)
 ![Last commit](https://img.shields.io/github/last-commit/maahii-in/maahii-in.github.io)
 ![Repo size](https://img.shields.io/github/repo-size/maahii-in/maahii-in.github.io)
@@ -38,6 +39,7 @@ I build retrieval-augmented generation systems, live voice agents and the ML wor
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
 - [Customizing the Content](#customizing-the-content)
+- [Branching and Releases](#branching-and-releases)
 - [Deployment and CI/CD](#deployment-and-cicd)
 - [SEO and Discoverability](#seo-and-discoverability)
 - [Design Decisions](#design-decisions)
@@ -105,15 +107,17 @@ This repository is the source of my personal portfolio at **[maahii.space](https
 
 **Engineering**
 - TypeScript throughout, with a strict compiler configuration
-- Production builds with Vite, with automatic deployment on every push
+- Production builds with Vite, with automatic deployment on every push to `main`
 - SEO setup with structured data, Open Graph tags, `robots.txt` and a sitemap
+- Versioned releases with a maintained [changelog](CHANGELOG.md)
 
 ## Architecture
 
 ```mermaid
 flowchart LR
-    Dev[Local development<br/>npm run dev] -->|git push| Repo[GitHub repository<br/>main branch]
-    Repo -->|triggers| CI[GitHub Actions<br/>install, build]
+    Dev[Local development<br/>npm run dev] -->|git push| DevBranch[dev branch]
+    DevBranch -->|pull request and merge| Main[main branch]
+    Main -->|triggers| CI[GitHub Actions<br/>install, build]
     CI -->|dist artifact| Pages[GitHub Pages]
     DNS[GoDaddy DNS<br/>A records and CNAME] --> Pages
     Pages --> Site[maahii.space]
@@ -155,6 +159,7 @@ The site is a static single-page application. There is no backend, database or s
 │   ├── types/                      # Shared TypeScript types
 │   ├── App.tsx
 │   └── main.tsx
+├── CHANGELOG.md                    # Release history
 ├── index.html                      # SEO tags and structured data
 ├── tailwind.config.js
 ├── tsconfig.app.json
@@ -199,6 +204,30 @@ The site runs at `http://localhost:3000`. No environment variables are required.
 | Certificate images | `public/img/` and the paths in `PortfolioData.ts` |
 | SEO tags and structured data | `index.html`, `public/robots.txt`, `public/sitemap.xml` |
 
+## Branching and Releases
+
+| Branch | Purpose |
+| --- | --- |
+| `main` | Production. Every push is built and deployed to [maahii.space](https://maahii.space). |
+| `dev` | Day-to-day work. Pushes here do not change the live site. |
+
+**Workflow**
+
+1. Work on `dev` and check changes locally with `npm run dev`.
+2. Commit and push to `dev`.
+3. When the changes are ready, open a pull request from `dev` into `main` and merge it.
+4. The merge triggers the deployment workflow and the live site updates.
+5. Update [CHANGELOG.md](CHANGELOG.md), then tag the release:
+
+```bash
+git checkout main
+git pull origin main
+git tag -a v1.1.0 -m "Describe the release"
+git push origin v1.1.0
+```
+
+Releases follow [Semantic Versioning](https://semver.org/) and are listed on the [Releases](https://github.com/maahii-in/maahii-in.github.io/releases) page. The first release is `v1.0.0`.
+
 ## Deployment and CI/CD
 
 Every push to `main` runs the workflow in `.github/workflows/deploy.yml`:
@@ -228,9 +257,11 @@ Every push to `main` runs the workflow in `.github/workflows/deploy.yml`:
 - **All content in one typed data file.** Projects, experience, education and certifications live in `PortfolioData.ts`, so updating the site means editing data, not components.
 - **Mail-client contact form.** Without a backend there are no API keys or spam endpoints to protect. The form builds a `mailto:` link with the visitor's message.
 - **404 fallback for client-side routes.** GitHub Pages has no server-side routing, so the build copies `index.html` to `404.html` to keep deep links working.
+- **Separate production and working branches.** Deploying only from `main` means experiments on `dev` can never break the live site.
 
 ## Roadmap
 
+- [x] Version 1: portfolio content, custom domain, SEO and automated deployment
 - [ ] Add screenshots and live demos for each project
 - [ ] Replace placeholder certificate cards with the real certificates
 - [ ] Add a blog section for write-ups on RAG and LLM engineering
