@@ -2,61 +2,66 @@
 
 All notable changes to this project are documented in this file.
 
-The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/).
+This changelog follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-Work in progress on the `dev` branch. Nothing here is live on [maahii.space](https://maahii.space) until `dev` is merged into `main`.
+Work in progress on the `dev` branch. Changes documented in this section are not yet live on [maahii.space](https://maahii.space). They will be included in the production website after `dev` is merged into `main`.
 
 ### Added
-- `dev` branch for day-to-day work, so the live site on `main` stays stable
-- "Branching and Releases" section in the README, with the pull-request workflow and release steps
-- Release badge and a link to this changelog in the README
+- Introduced a dedicated `dev` branch for day-to-day development, keeping the production `main` branch stable.
+- Added a **Branching and Releases** section to the README, documenting the pull request workflow and release process.
+- Added a release badge and a link to this changelog in the README.
 
 ### Changed
-- Architecture diagram in the README now shows the `dev` to `main` flow
+- Updated the README architecture diagram to illustrate the development-to-production workflow (`dev` → `main`).
 
 ### Planned
-- Real certificate images in place of the generated placeholders
-- Project screenshots and live-demo links
-- Blog section for write-ups on RAG and LLM engineering
-- Case study page for each featured project
-- Contact form that delivers messages straight to my inbox
+- Replace generated certificate placeholders with authentic certificate images.
+- Add project screenshots and live demo links.
+- Introduce a blog section featuring articles on Retrieval-Augmented Generation (RAG) and Large Language Model (LLM) engineering.
+- Create dedicated case study pages for featured projects.
+- Implement a functional contact form that delivers messages directly to the owner's inbox.
 
 ## [1.0.0] - 2026-10-15
 
-First public release of the portfolio at [maahii.space](https://maahii.space).
+**Initial public release** of the personal portfolio website at [maahii.space](https://maahii.space).
 
 ### Added
-- Portfolio content built from my resume: hero, skills, experience, projects, education, certifications and contact sections
-- Name animation and typewriter roles (AI Engineer, LLM Developer, RAG Systems Builder, ML Enthusiast)
-- Skills grouped into Languages and Databases, AI and LLM, Machine Learning, and MLOps and Tools, with a matching logo strip
-- Experience section for the AI Engineer role at XaasIO Pvt Ltd
-- Three featured projects with GitHub links
-- Profile photo in the hero
-- Resume download (`public/documents/resume.pdf`)
-- Contact form that opens the visitor's email app with the message pre-filled
-- Location set to Chirala, Andhra Pradesh, India, with a matching map
-- SEO: meta description, canonical URL, Open Graph tags, `Person` structured data, `robots.txt` and `sitemap.xml`
-- Google Search Console verification file
-- Favicons and web manifest with my initials
-- GitHub Actions workflow that builds and deploys to GitHub Pages on every push to `main`
-- Custom domain `maahii.space` with HTTPS, using GoDaddy DNS
-- Professional README with architecture diagram, setup, deployment and design notes
+- Built a professional portfolio based on resume content, featuring an introduction, technical skills, professional experience, projects, education, certifications, and contact information.
+- Implemented animated name text and a typewriter effect showcasing the roles of AI Engineer, LLM Developer, RAG Systems Builder, and ML Enthusiast.
+- Organized technical skills into Languages and Databases, AI and LLM, Machine Learning, and MLOps and Tools, with a corresponding technology logo strip.
+- Added professional experience for the AI Engineer role at XaasIO Pvt Ltd.
+- Featured three projects with links to their respective GitHub repositories.
+- Integrated a profile photo into the hero section.
+- Added resume download functionality using `public/documents/resume.pdf`.
+- Implemented a contact form that opens the visitor's default email application with a pre-filled message.
+- Added the location, Chirala, Andhra Pradesh, India, with an accompanying map.
+- Implemented SEO essentials, including a meta description, canonical URL, Open Graph metadata, `Person` structured data, `robots.txt`, and `sitemap.xml`.
+- Added a Google Search Console verification file.
+- Configured favicons and a web manifest featuring the owner's initials.
+- Automated builds and deployments to GitHub Pages through GitHub Actions on every push to `main`.
+- Configured the custom domain `maahii.space` with HTTPS using GoDaddy DNS.
+- Created a comprehensive README covering project architecture, setup instructions, deployment workflow, and design decisions.
 
 ### Changed
-- Replaced all personal data from the original template with my own: name, links, email, projects, education and certifications
-- Removed the `baseUrl` option from `tsconfig.app.json` to fix the TypeScript deprecation warning
-- Renamed the GitHub account username to `maahii-in` and updated every link
+- Replaced the original template's personal information with the owner's details, including name, links, email, projects, education, and certifications.
+- Removed the deprecated `baseUrl` option from `tsconfig.app.json` to resolve a TypeScript deprecation warning.
+- Renamed the GitHub account username to `maahii-in` and updated all associated project links.
 
 ### Removed
-- The AI chat assistant, the "My Services" button and the old contact-form API, which pointed at the template author's services
-- The Internships section (replaced by Experience) and all of the template owner's images
+- Removed the template's AI chat assistant, the **My Services** button, and the legacy contact-form API that referenced the original template author's services.
+- Replaced the template's Internships section with a Professional Experience section.
+- Removed images belonging to the original template author.
 
-### Known limitations
-- Certificate images and project covers are generated placeholders
-- Projects have no live demos
-- Google indexing of the site was still in progress at release time
+### Known Limitations
+- Certificate images and project cover images currently use generated placeholders.
+- Featured projects do not yet include live demos.
+- Google indexing was still in progress at the time of the initial release.
+
+---
+
+## Release Links
 
 [Unreleased]: https://github.com/maahii-in/maahii-in.github.io/compare/v1.0.0...dev
 [1.0.0]: https://github.com/maahii-in/maahii-in.github.io/releases/tag/v1.0.0
